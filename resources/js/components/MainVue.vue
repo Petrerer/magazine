@@ -1,7 +1,7 @@
 <template>
-        <v-app>
-        <v-btn class="primary">test</v-btn>
-        </v-app>
+        <div class="container">
+            <v-btn>v</v-btn>
+        </div>  
 </template>
 
 <script>
