@@ -2,8 +2,7 @@ import Vue from 'vue'
 import MainVue from "./components/MainVue"
 import routes from "./routes"
 import VueResource from "vue-resource"
-//import Vuetify from '../plugins/vuetify'
-import Vuetify from 'vuetify'
+import Vuetify from '../plugins/vuetify'
 import VueRouter from 'vue-router'
 
 

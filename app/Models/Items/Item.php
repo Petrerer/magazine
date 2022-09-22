@@ -4,11 +4,14 @@ namespace App\Models\Items;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\User;
 
 class Item extends Model
 {
-    use HasFactory;
-    protected $fillable = ['name', 'price', 'category_id '];
+    use HasFactory,SoftDeletes;
+
+    protected $fillable=["name","price","category_id"];
 
     public function category()
     {

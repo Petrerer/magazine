@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("price");
+            $table->integer("price")->nullable();
             $table->bigInteger("category_id")->nullable()->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign("category_id")->references('id')->on("categories");
         });
     }
 
