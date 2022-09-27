@@ -23,7 +23,13 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.category.name }}</td>
-                <td> Usuń </td>
+                <td>
+                    <v-btn @click="deleteItem(item.id)" color="error" fab x-small>
+                        <v-icon>
+                            mdi-delete
+                        </v-icon>
+                    </v-btn>
+                </td>
                 </tr>
             </tbody>
             </template>
@@ -49,6 +55,12 @@ import Create from "./Create"
         methods:{
             listItems(){
                 store.dispatch("listItems",this);
+            },
+            async deleteItem(id){
+                console.log(id);
+                store.commit("setItemId",id);
+                await store.dispatch("destroyItem",this);
+                this.listItems();
             }
         },
         created(){
