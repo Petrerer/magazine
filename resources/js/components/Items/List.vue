@@ -1,5 +1,6 @@
 <template>
     <v-container>
+        <create @createdItem="listItems"/>
         Items
 
         <v-simple-table>
@@ -22,7 +23,7 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.category.name }}</td>
-                <td>Usuń</td>
+                <td> Usuń </td>
                 </tr>
             </tbody>
             </template>
@@ -35,7 +36,11 @@
 
 <script>
 import store from "../../store/index"
+import Create from "./Create"
     export default {
+        components:{
+            Create
+        },
         computed:{
             items(){
                 return store.getters.getItems;
