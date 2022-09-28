@@ -11,6 +11,7 @@
                 <th>Nazwa</th>
                 <th>Cena</th>
                 <th>Kategoria</th>
+                <th>User</th>
                 <th>Usuń</th>
                 </tr>
             </thead>
@@ -23,6 +24,11 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.category.name }}</td>
+                <td>
+                    <span v-if="item.user">
+                        {{ item.user.name }}
+                    </span>
+                </td>
                 <td>
                     <v-btn @click="deleteItem(item.id)" color="error" fab x-small>
                         <v-icon>

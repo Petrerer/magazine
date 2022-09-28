@@ -16,6 +16,7 @@ class ItemController extends Controller
     }
     public function create(Request $request)
     {
+        $item["user_id"]=$request->user()->id;
         $item = $request->get('item');
         $this->itemService->create($item);
     }

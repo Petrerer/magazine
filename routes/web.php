@@ -18,12 +18,8 @@ use App\Http\Controllers\Items\ItemsController;
 |
 */
 
-Route::get('/{any}', function () {
-    return view('welcome');
-})->where("any",".*");
-
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
- 
+Route::get('/{any}', function () {
+    return view('welcome'); 
+})->where("any",".*")->middleware("auth:sanctum");

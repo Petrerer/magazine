@@ -199,13 +199,14 @@ __webpack_require__.r(__webpack_exports__);
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vue_resource__WEBPACK_IMPORTED_MODULE_2__["default"]); // Vue.http.interceptors.push((request) => {
-//     let token = document.head.querySelector('meta[name="csrf-token"]');
-//     if (token) {
-//         request.headers.set("X-CSRF-TOKEN", token.content);
-//     }
-// });
+vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vue_resource__WEBPACK_IMPORTED_MODULE_2__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4__["default"].http.interceptors.push(function (request) {
+  var token = document.head.querySelector('meta[name="csrf-token"]');
 
+  if (token) {
+    request.headers.set("X-CSRF-TOKEN", token.content);
+  }
+});
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"](_routes__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_4__["default"]({
   vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -347,7 +348,8 @@ var state = {
     id: 0,
     name: "",
     price: 0,
-    category_id: 0
+    category_id: 0,
+    user_id: 0
   }
 }; //getters to wywoływane metody
 
@@ -19936,10 +19938,10 @@ var render = function render() {
     scopedSlots: _vm._u([{
       key: "default",
       fn: function fn() {
-        return [_c("thead", [_c("tr", [_c("th", [_vm._v("Lp")]), _vm._v(" "), _c("th", [_vm._v("Nazwa")]), _vm._v(" "), _c("th", [_vm._v("Cena")]), _vm._v(" "), _c("th", [_vm._v("Kategoria")]), _vm._v(" "), _c("th", [_vm._v("Usuń")])])]), _vm._v(" "), _c("tbody", _vm._l(_vm.items, function (item, index) {
+        return [_c("thead", [_c("tr", [_c("th", [_vm._v("Lp")]), _vm._v(" "), _c("th", [_vm._v("Nazwa")]), _vm._v(" "), _c("th", [_vm._v("Cena")]), _vm._v(" "), _c("th", [_vm._v("Kategoria")]), _vm._v(" "), _c("th", [_vm._v("User")]), _vm._v(" "), _c("th", [_vm._v("Usuń")])])]), _vm._v(" "), _c("tbody", _vm._l(_vm.items, function (item, index) {
           return _c("tr", {
             key: item.name
-          }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.category.name))]), _vm._v(" "), _c("td", [_c(vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.category.name))]), _vm._v(" "), _c("td", [item.user ? _c("span", [_vm._v("\n                    " + _vm._s(item.user.name) + "\n                ")]) : _vm._e()]), _vm._v(" "), _c("td", [_c(vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
             attrs: {
               color: "error",
               fab: "",
