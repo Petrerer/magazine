@@ -15,7 +15,7 @@ class CategoriesService
 
     public function list()
     {
-        $categories = $this->categoryModel->get();
+        $categories = $this->categoryModel->with('items')->get();
         return $categories;
     }
 }

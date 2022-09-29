@@ -1,8 +1,6 @@
 <template>
     <v-container>
         <create @createdItem="listItems"/>
-        Items
-
         <v-simple-table>
             <template v-slot:default>
             <thead>
@@ -18,12 +16,16 @@
             <tbody>
                 <tr
                 v-for="(item,index) in items"
-                :key="item.name"
+                :key="item.id"
                 >
                 <td>{{ index+1 }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.price }}</td>
-                <td>{{ item.category.name }}</td>
+                <td>
+                    <span v-if="item.category">
+                        {{ item.category.name }}
+                    </span>
+                </td>
                 <td>
                     <span v-if="item.user">
                         {{ item.user.name }}
@@ -62,6 +64,7 @@ import Create from "./Create"
             listItems(){
                 store.dispatch("listItems",this);
             },
+
             async deleteItem(id){
                 console.log(id);
                 store.commit("setItemId",id);

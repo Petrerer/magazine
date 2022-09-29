@@ -12,7 +12,7 @@ const state = {
         user_id:0
     }
 }
-
+ 
 //getters to wywoływane metody
 const getters = {
     getItems:state=>state.items,            //funkcja getItems o arg state zwraca state.items

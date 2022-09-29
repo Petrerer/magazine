@@ -20,4 +20,4 @@ class ItemsController extends Controller
         $items=$this->itemsService->list();
         return response()->json(['items'=>$items]);
     }
-}
+} 
