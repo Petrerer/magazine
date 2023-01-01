@@ -21,7 +21,6 @@
         </v-card-title>
 
         <v-card-text>
-            {{item}}
             <div class="my-2 mt-6">
                 <v-text-field
                 label="Nazwa"
@@ -35,9 +34,8 @@
                     outlined
                     v-model="item.price"
                 ></v-text-field>
-                {{categories}}
             </div>
-          
+
             <div class="my-2">
 
                 <v-select

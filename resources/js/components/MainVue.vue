@@ -10,12 +10,16 @@
                 <v-btn class="primary white--text ma-3">Kategorie</v-btn>
             </router-link>
 
+            <router-link to="/gallery">
+                <v-btn class="primary white--text ma-3">Galeria</v-btn>
+            </router-link>
+
             <v-spacer></v-spacer>
             <v-btn class="primary white--text ma-3" @click="logout">Wyloguj się</v-btn>
-            
+
         </v-footer>
         <v-main>
-            <router-view></router-view> 
+            <router-view></router-view>
         </v-main>
     </v-app>
 </template>
